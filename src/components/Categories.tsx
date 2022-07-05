@@ -1,12 +1,17 @@
 import React from 'react'
 
-function Categories({value, setCategory}) {
+type CategoriesProps = {
+  value: number,
+  setCategory: (i: number) => void
+}
+
+const Categories: React.FC<CategoriesProps> = React.memo(({value, setCategory}) => {
   
   const categories = ['Все', 'мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
-  const onClickCategory = (index) => {
+  const onClickCategory = (index: number) => {
     setCategory(index)
-    
   }
+
   return (
     <div className="categories">
               <ul>
@@ -16,6 +21,6 @@ function Categories({value, setCategory}) {
               </ul>
             </div>
   )
-}
+})
 
 export default Categories
